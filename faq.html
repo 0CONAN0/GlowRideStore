@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - GlowRide</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css.map">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Iceberg&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg" id="navbar-nav">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="media/Page 1.png" alt="Brand Logo" class="brand-logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navbar-nav ms-auto">
+                        <a class="nav-link" href="products.html">Products</a>
+                        <a class="nav-link" href="aboutUs.html">About Us</a>
+                        <a class="nav-link" href="#">Contact Us</a>
+                        <a class="nav-link cart-icon" href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="faq-section">
+        <div class="container">
+            <h1 class="faq-title">Frequently Asked Questions</h1>
+            <p class="faq-description">Find answers to some of the most common questions about our products, orders, and
+                policies.</p>
+
+            <div class="faq-item">
+                <h3 class="faq-question faq-toggle">1. What types of products do you offer?</h3>
+                <div class="faq-answer">
+                    <p>At GlowRide, we specialize in creating LED and neon art pieces inspired by cars and automotive
+                        culture. Our collection includes custom designs that bring your passion for cars to life in a
+                        unique and visually captivating way.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question faq-toggle">2. How can I place an order?</h3>
+                <div class="faq-answer">
+                    <p>You can place an order directly through our website by browsing our products and adding them to
+                        your cart. Once you’ve finished shopping, proceed to checkout to complete your purchase. We
+                        currently offer Cash on Delivery for your convenience.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">3. What payment methods do you accept?</h3>
+                <p class="faq-answer">Currently, we accept Cash on Delivery as the primary payment method. We are
+                    working to add more payment options in the future for a smoother shopping experience.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">4. How long does shipping take?</h3>
+                <p class="faq-answer">Shipping times may vary depending on your location, but generally, you can expect
+                    your order to arrive within 5-7 business days after it has been processed. You will receive a
+                    tracking number to monitor your order’s progress.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">5. What is your return policy?</h3>
+                <p class="faq-answer">We accept returns within 14 days of delivery. If you're not satisfied with your
+                    purchase, please contact our customer support to initiate a return. Items must be in their original
+                    condition for a full refund or exchange.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">6. Do you offer custom designs?</h3>
+                <p class="faq-answer">Yes, we offer custom designs for those who want a unique piece. Contact us with
+                    your ideas, and our design team will work with you to create a custom piece tailored to your
+                    preferences.</p>
+            </div>
+
+        </div>
+    </section>
+
+<!-- JavaScript for FAQ Toggle -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const faqQuestions = document.querySelectorAll(".faq-question");
+
+        faqQuestions.forEach(question => {
+            question.addEventListener("click", function () {
+                // Get the corresponding answer
+                const faqAnswer = this.nextElementSibling;
+                
+                // Toggle active class on the question
+                this.classList.toggle("active");
+
+                // Show/hide the answer with a smooth transition
+                if (faqAnswer.style.display === "block") {
+                    faqAnswer.style.display = "none";
+                } else {
+                    faqAnswer.style.display = "block";
+                }
+            });
+        });
+    });
+</script>
+
+
+
+    <footer class="footer">
+        <p class="text-center">&copy; 2024 GlowRide. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

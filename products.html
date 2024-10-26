@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - GlowRide</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css.map">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Iceberg&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="media/Page 1.png" alt="Brand Logo" class="brand-logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navbar-nav ms-auto">
+                        <a class="nav-link" href="aboutUs.html">About Us</a>
+                        <a class="nav-link" href="contactUs.html">Contact Us</a>
+                        <a href="cart.html" class="cart-icon nav-link">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span id="cart-count">0</span>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+<!-- Products Section -->
+<section class="products-section">
+    <h1 class="products-title">Our Products</h1>
+    <p class="products-description">Explore our collection of LED and neon art pieces inspired by automotive culture. Each product is crafted to bring your passion for cars to life in a unique and stylish way.</p>
+
+    <!-- Product Grid -->
+    <div class="product-grid">
+
+        <!-- Product Card 1 -->
+        <div class="product-card">
+            <img src="media/maclarenPoster.jpg" alt="Car LED Neon Art">
+            <h2 class="product-title">Car LED Neon Art</h2>
+            <p class="product-price">$120.00</p>
+            <button class="add-to-cart-btn" 
+                    data-id="1" 
+                    data-name="Car LED Neon Art" 
+                    data-price="120.00" 
+                    data-image="media/maclarenPoster.jpg">
+                Add to Cart
+            </button>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="product-card">
+            <img src="media/maclarenPoster.jpg" alt="Vintage Neon Sign">
+            <h2 class="product-title">Vintage Neon Sign</h2>
+            <p class="product-price">$150.00</p>
+            <button class="add-to-cart-btn" 
+                    data-id="2" 
+                    data-name="Vintage Neon Sign" 
+                    data-price="150.00" 
+                    data-image="media/maclarenPoster.jpg">
+                Add to Cart
+            </button>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="product-card">
+            <img src="media/maclarenPoster.jpg" alt="Custom Car Art">
+            <h2 class="product-title">Custom Car Art</h2>
+            <p class="product-price">$180.00</p>
+            <button class="add-to-cart-btn" 
+                    data-id="3" 
+                    data-name="Custom Car Art" 
+                    data-price="180.00" 
+                    data-image="media/maclarenPoster.jpg">
+                Add to Cart
+            </button>
+        </div>
+
+        <!-- Product Card 4 -->
+        <div class="product-card">
+            <img src="media/maclarenPoster.jpg" alt="Modern LED Wall Art">
+            <h2 class="product-title">Modern LED Wall Art</h2>
+            <p class="product-price">$200.00</p>
+            <button class="add-to-cart-btn" 
+                    data-id="4" 
+                    data-name="Modern LED Wall Art" 
+                    data-price="200.00" 
+                    data-image="media/maclarenPoster.jpg">
+                Add to Cart
+            </button>
+        </div>
+
+    </div>
+</section>
+
+
+    <footer class="footer">
+        <p class="text-center">&copy; 2024 GlowRide. All rights reserved.</p>
+    </footer>
+    <script src="products.js"></script>
+</body>
+
+</html>
