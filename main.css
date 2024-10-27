@@ -138,13 +138,13 @@ p {
 }
 
 .jumbotron .lead {
-    color: #FFF;
+    color: #c8c8c8;
     font-size: 1.1em;
     line-height: 1.6;
 }
 
 #discover-btn {
-    color: var(--primary-color);
+    color: #FFF;
     padding: 10px 20px;
     font-family: "Iceberg", serif;
     font-weight: 600;
@@ -1131,21 +1131,67 @@ p {
     font-size: 1.8em;
     color: #F0C040;
     margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Order Summary Items */
+.order-summary-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
 .summary-item {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.summary-item img {
+    width: 60px;
+    height: auto;
+    border-radius: 5px;
+    margin-right: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.summary-item-details {
+    flex: 1;
+    color: #D3D3D3;
+}
+
+.summary-item-details h3 {
+    font-size: 1em;
+    font-weight: bold;
+    color: #F0C040;
+    margin: 0;
+}
+
+.summary-item-details p {
+    font-size: 0.9em;
+    color: #D3D3D3;
+    margin: 5px 0 0;
 }
 
 .summary-total {
     font-size: 1.3em;
     font-weight: bold;
     color: #F0C040;
-    margin-top: 20px;
     display: flex;
     justify-content: space-between;
+    border-top: 1px solid #444;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+/* Disabled Checkout Button Styling */
+.checkout-btn.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    color: #666;
 }
 
 /* Responsive Styling */
@@ -1157,4 +1203,175 @@ p {
     .checkout-form, .order-summary {
         max-width: 100%;
     }
+}
+
+
+/* Auth Pages Styling */
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+    background-color: #1c1c1c;
+}
+
+.auth-title {
+    font-size: 2.5em;
+    color: #F0C040;
+    margin-bottom: 20px;
+    font-family: "Iceberg", serif;
+}
+
+.auth-form {
+    width: 100%;
+    max-width: 400px;
+    background-color: #262626;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    color: #E0E0E0;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    background-color: #333;
+    border: 1px solid #555;
+    color: #D3D3D3;
+    font-size: 1em;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #F0C040;
+    border: none;
+    border-radius: 5px;
+    color: #1C1C1C;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.auth-btn:hover {
+    background-color: #D3D3D3;
+}
+
+.auth-switch {
+    text-align: center;
+    margin-top: 15px;
+    color: #E0E0E0;
+}
+
+.auth-switch a {
+    color: #F0C040;
+    text-decoration: none;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+
+/* Profile Page Styling */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px;
+    background-color: #1c1c1c;
+    min-height: 100vh;
+}
+
+.profile-title {
+    font-size: 2.5em;
+    color: #F0C040;
+    margin-bottom: 20px;
+    font-family: "Iceberg", serif;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #262626;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 3px solid #F0C040;
+}
+
+.profile-info p {
+    color: #E0E0E0;
+    margin: 10px 0;
+}
+
+.profile-btn {
+    padding: 10px 20px;
+    background-color: #F0C040;
+    border: none;
+    border-radius: 5px;
+    color: #1C1C1C;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.profile-btn:hover {
+    background-color: #D3D3D3;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #262626;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+}
+
+.modal h2 {
+    color: #F0C040;
+    text-align: center;
+    margin-bottom: 20px;
 }

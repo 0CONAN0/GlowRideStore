@@ -14,7 +14,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Iceberg&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Iceberg&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
 
 </head>
 
@@ -95,28 +97,20 @@
                 <button type="submit" class="submit-order-btn">Place Order</button>
             </div>
 
-            <!-- Order Summary -->
             <div class="order-summary">
                 <h2>Order Summary</h2>
-                <div class="summary-item">
-                    <span>Item Total</span>
-                    <span>$120.00</span>
-                </div>
-                <div class="summary-item">
-                    <span>Shipping</span>
-                    <span>Calculated at checkout</span>
-                </div>
+                <div class="order-summary-items"></div> <!-- This container will display each cart item -->
                 <div class="summary-total">
                     <span>Total</span>
-                    <span>$120.00</span>
+                    <span id="checkout-total">$0.00</span>
                 </div>
             </div>
-        </div>
     </section>
 
     <footer class="footer">
         <p>&copy; 2024 GlowRide. All rights reserved.</p>
     </footer>
+    <script src="checkout.js"></script>
 </body>
 
 </html>

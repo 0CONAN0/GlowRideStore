@@ -32,21 +32,25 @@ function addToCart(event) {
     // Update the cart count
     updateCartCount();
 
-    // Optional: Show a confirmation message
-    alert(`${productName} has been added to your cart.`);
 }
 
-// Function to update the cart icon count
+// Function to update the cart icon count on all pages
 function updateCartCount() {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
-    document.getElementById("cart-count").textContent = cartCount;
+    
+    // Update all elements with id="cart-count" on the page
+    document.querySelectorAll("#cart-count").forEach((element) => {
+        element.textContent = cartCount;
+    });
 }
 
-// Attach event listeners to each "Add to Cart" button
-document.querySelectorAll(".add-to-cart-btn").forEach(button => {
-    button.addEventListener("click", addToCart);
-});
+document.addEventListener("DOMContentLoaded", () => {
+    // Attach event listeners to each "Add to Cart" button
+    document.querySelectorAll(".add-to-cart-btn").forEach(button => {
+        button.addEventListener("click", addToCart);
+    });
 
-// Update cart count on page load
-window.onload = updateCartCount;
+    // Update cart count on page load
+    updateCartCount();
+});

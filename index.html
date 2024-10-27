@@ -14,7 +14,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Iceberg&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Iceberg&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -33,31 +35,37 @@
                         <a class="nav-link" href="products.html">Products</a>
                         <a class="nav-link" href="aboutUs.html">About Us</a>
                         <a class="nav-link" href="contactUs.html">Contact Us</a>
-                        <a class="nav-link cart-icon" href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="cart.html" class="cart-icon nav-link">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span id="cart-count">0</span>
+                        </a>
+                        <a href="login.html" class="nav-link"><i class="fa-solid fa-user"></i></a>
+
                     </div>
                 </div>
             </div>
         </nav>
     </header>
 
-<!-- Main Jumbotron Section with Background Video -->
-<div class="jumbotron jumbotron-fluid text-center">
-    <div class="video-container">
-        <video autoplay muted loop class="jumbotron-video">
-            <source src="media/backgorundVideo.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+    <!-- Main Jumbotron Section with Background Video -->
+    <div class="jumbotron jumbotron-fluid text-center">
+        <div class="video-container">
+            <video autoplay muted loop class="jumbotron-video">
+                <source src="media/MainBackround.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="jumbotron-content">
+            <h1 class="display-4">Illuminate Your Passion for Cars with Our Unique Art</h1>
+            <p class="lead">
+                At GlowRide, we bring cars to life through stunning art pieces that blend Neon with craftsmanship.
+                Our creations capture the essence of each car, transforming them into unique artworks that light up your
+                space with style.
+                Explore our collection and let your passion shine.
+            </p>
+            <a href="products.html" class="btn" id="discover-btn">Discover more..</a>
+        </div>
     </div>
-    <div class="jumbotron-content">
-        <h1 class="display-4">Illuminate Your Passion for Cars with Our Unique Art</h1>
-        <p class="lead">
-            At GlowRide, we bring cars to life through stunning art pieces that blend Neon with craftsmanship.
-            Our creations capture the essence of each car, transforming them into unique artworks that light up your space with style.
-            Explore our collection and let your passion shine.
-        </p>
-        <a href="products.html" class="btn" id="discover-btn">Discover more..</a>
-    </div>
-</div>
 
 
 
@@ -80,12 +88,16 @@
                     <p class="card-price">$150.00</p>
                     <p class="card-text">A unique piece that captures the essence of automotive elegance.</p>
                     <div class="text-center">
-                        <button class="order-btn">Add to cart</button>
-                    </div>                    
+                        <button class="order-btn add-to-cart-btn" data-id="1" data-name="Art Piece Title 1"
+                            data-price="150.00" data-image="media/maclarenPoster.jpg">
+                            Add to Cart
+                        </button>
+
+                    </div>
                 </div>
             </div>
         </div>
-    
+
         <div class="col-md-6 col-lg-3">
             <div class="card featured-card">
                 <img src="media/maclarenPoster.jpg" class="img-fluid featured-image" alt="Art Piece 2">
@@ -94,12 +106,16 @@
                     <p class="card-price">$180.00</p>
                     <p class="card-text">An exclusive piece for any automotive enthusiast's collection.</p>
                     <div class="text-center">
-                        <button class="order-btn">Add to cart</button>
-                    </div>                    
+                        <button class="order-btn add-to-cart-btn" data-id="1" data-name="Art Piece Title 1"
+                            data-price="150.00" data-image="media/maclarenPoster.jpg">
+                            Add to Cart
+                        </button>
+
+                    </div>
                 </div>
             </div>
         </div>
-    
+
         <div class="col-md-6 col-lg-3">
             <div class="card featured-card">
                 <img src="media/maclarenPoster.jpg" class="img-fluid featured-image" alt="Art Piece 3">
@@ -108,8 +124,12 @@
                     <p class="card-price">$200.00</p>
                     <p class="card-text">A bold, modern piece that brings unique charm to any space.</p>
                     <div class="text-center">
-                        <button class="order-btn">Add to cart</button>
-                    </div>                    
+                        <button class="order-btn add-to-cart-btn" data-id="1" data-name="Art Piece Title 1"
+                            data-price="150.00" data-image="media/maclarenPoster.jpg">
+                            Add to Cart
+                        </button>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -123,12 +143,16 @@
                     <p class="card-price">$150.00</p>
                     <p class="card-text">A unique piece that captures the essence of automotive elegance.</p>
                     <div class="text-center">
-                        <button class="order-btn">Add to cart</button>
-                    </div>                    
+                        <button class="order-btn add-to-cart-btn" data-id="1" data-name="Art Piece Title 1"
+                            data-price="150.00" data-image="media/maclarenPoster.jpg">
+                            Add to Cart
+                        </button>
+
+                    </div>
                 </div>
             </div>
         </div>
-    
+
         <div class="col-md-6 col-lg-3">
             <div class="card featured-card">
                 <img src="media/maclarenPoster.jpg" class="img-fluid featured-image" alt="Art Piece 2">
@@ -137,12 +161,16 @@
                     <p class="card-price">$180.00</p>
                     <p class="card-text">An exclusive piece for any automotive enthusiast's collection.</p>
                     <div class="text-center">
-                        <button class="order-btn">Add to cart</button>
-                    </div>                    
+                        <button class="order-btn add-to-cart-btn" data-id="1" data-name="Art Piece Title 1"
+                            data-price="150.00" data-image="media/maclarenPoster.jpg">
+                            Add to Cart
+                        </button>
+
+                    </div>
                 </div>
             </div>
         </div>
-    
+
         <div class="col-md-6 col-lg-3">
             <div class="card featured-card">
                 <img src="media/maclarenPoster.jpg" class="img-fluid featured-image" alt="Art Piece 3">
@@ -151,13 +179,17 @@
                     <p class="card-price">$200.00</p>
                     <p class="card-text">A bold, modern piece that brings unique charm to any space.</p>
                     <div class="text-center">
-                        <button class="order-btn">Add to cart</button>
-                    </div>                    
+                        <button class="order-btn add-to-cart-btn" data-id="1" data-name="Art Piece Title 1"
+                            data-price="150.00" data-image="media/maclarenPoster.jpg">
+                            Add to Cart
+                        </button>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
 
 
     <footer id="main-footer">
@@ -211,6 +243,7 @@
             <p>&copy; 2024 GlowRide creations. All Rights Reserved.</p>
         </div>
     </footer>
+    <script src="products.js"></script>
 
 </body>
 
