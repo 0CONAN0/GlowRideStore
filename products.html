@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products - GlowRide</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css.map">
@@ -21,7 +21,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
                     <img src="media/Page 1.png" alt="Brand Logo" class="brand-logo">
@@ -44,78 +44,58 @@
         </nav>
     </header>
 
-<!-- Products Section -->
-<section class="products-section">
-    <h1 class="products-title">Our Products</h1>
-    <p class="products-description">Explore our collection of LED and neon art pieces inspired by automotive culture. Each product is crafted to bring your passion for cars to life in a unique and stylish way.</p>
+    <!-- Products Section -->
+    <section class="products-section">
+        <h1 class="products-title">Our Products</h1>
+        <p class="products-description">Explore our collection of LED and neon art pieces inspired by automotive culture. Each product is crafted to bring your passion for cars to life in a unique and stylish way.</p>
 
-    <!-- Product Grid -->
-    <div class="product-grid">
-
-        <!-- Product Card 1 -->
-        <div class="product-card">
-            <img src="media/maclarenPoster.jpg" alt="Car LED Neon Art">
-            <h2 class="product-title">Car LED Neon Art</h2>
-            <p class="product-price">$120.00</p>
-            <button class="add-to-cart-btn" 
-                    data-id="1" 
-                    data-name="Car LED Neon Art" 
-                    data-price="120.00" 
-                    data-image="media/maclarenPoster.jpg">
-                Add to Cart
-            </button>
+        <!-- Product Grid (Dynamically Loaded) -->
+        <div class="product-grid" id="product-grid">
+            <!-- Product cards will be dynamically loaded here -->
         </div>
-
-        <!-- Product Card 2 -->
-        <div class="product-card">
-            <img src="media/maclarenPoster.jpg" alt="Vintage Neon Sign">
-            <h2 class="product-title">Vintage Neon Sign</h2>
-            <p class="product-price">$150.00</p>
-            <button class="add-to-cart-btn" 
-                    data-id="2" 
-                    data-name="Vintage Neon Sign" 
-                    data-price="150.00" 
-                    data-image="media/maclarenPoster.jpg">
-                Add to Cart
-            </button>
-        </div>
-
-        <!-- Product Card 3 -->
-        <div class="product-card">
-            <img src="media/maclarenPoster.jpg" alt="Custom Car Art">
-            <h2 class="product-title">Custom Car Art</h2>
-            <p class="product-price">$180.00</p>
-            <button class="add-to-cart-btn" 
-                    data-id="3" 
-                    data-name="Custom Car Art" 
-                    data-price="180.00" 
-                    data-image="media/maclarenPoster.jpg">
-                Add to Cart
-            </button>
-        </div>
-
-        <!-- Product Card 4 -->
-        <div class="product-card">
-            <img src="media/maclarenPoster.jpg" alt="Modern LED Wall Art">
-            <h2 class="product-title">Modern LED Wall Art</h2>
-            <p class="product-price">$200.00</p>
-            <button class="add-to-cart-btn" 
-                    data-id="4" 
-                    data-name="Modern LED Wall Art" 
-                    data-price="200.00" 
-                    data-image="media/maclarenPoster.jpg">
-                Add to Cart
-            </button>
-        </div>
-
-    </div>
-</section>
-
+    </section>
 
     <footer class="footer">
         <p class="text-center">&copy; 2024 GlowRide. All rights reserved.</p>
     </footer>
-    <script src="products.js"></script>
+
+    <!-- JavaScript to Fetch and Display Products -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            loadProducts();
+        });
+
+        async function loadProducts() {
+            try {
+                const response = await fetch("http://localhost:5000/api/products"); // Adjust API URL if necessary
+                const products = await response.json();
+
+                const productGrid = document.getElementById("product-grid");
+                productGrid.innerHTML = ""; // Clear previous content
+
+                products.forEach(product => {
+                    const productCard = document.createElement("div");
+                    productCard.classList.add("product-card");
+
+                    productCard.innerHTML = `
+                        <img src="${product.imageUrl}" alt="${product.name}" class="product-image">
+                        <h2 class="product-title">${product.name}</h2>
+                        <p class="product-price">EGP ${product.price.toFixed(2)}</p>
+                        <button class="add-to-cart-btn" 
+                                data-id="${product._id}" 
+                                data-name="${product.name}" 
+                                data-price="${product.price}" 
+                                data-image="${product.imageUrl}">
+                            Add to Cart
+                        </button>
+                    `;
+                    productGrid.appendChild(productCard);
+                });
+            } catch (error) {
+                console.error("Failed to load products:", error);
+            }
+        }
+    </script>
 </body>
 
 </html>

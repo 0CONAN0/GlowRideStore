@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GlowRide Store</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css.map">
@@ -78,117 +78,22 @@
         </p>
     </div>
 
-    <!-- Featured Art Card -->
-    <div class="container card-container">
-        <div class="col-md-6 col-lg-3">
-            <div class="card featured-card">
-                <img src="media/maclarenPoster.jpg" class="img-fluid featured-image" alt="Art Piece 1">
-                <div class="card-body">
-                    <h5 class="card-title">Art Piece Title 1</h5>
-                    <p class="card-price">$150.00</p>
-                    <p class="card-text">A unique piece that captures the essence of automotive elegance.</p>
-                    <div class="text-center">
-                        <button class="order-btn add-to-cart-btn" data-id="1" data-name="Art Piece Title 1"
-                            data-price="150.00" data-image="media/maclarenPoster.jpg">
-                            Add to Cart
-                        </button>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-            <div class="card featured-card">
-                <img src="media/maclarenPoster.jpg" class="img-fluid featured-image" alt="Art Piece 2">
-                <div class="card-body">
-                    <h5 class="card-title">Art Piece Title 2</h5>
-                    <p class="card-price">$180.00</p>
-                    <p class="card-text">An exclusive piece for any automotive enthusiast's collection.</p>
-                    <div class="text-center">
-                        <button class="order-btn add-to-cart-btn" data-id="1" data-name="Art Piece Title 1"
-                            data-price="150.00" data-image="media/maclarenPoster.jpg">
-                            Add to Cart
-                        </button>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-            <div class="card featured-card">
-                <img src="media/maclarenPoster.jpg" class="img-fluid featured-image" alt="Art Piece 3">
-                <div class="card-body">
-                    <h5 class="card-title">Art Piece Title 3</h5>
-                    <p class="card-price">$200.00</p>
-                    <p class="card-text">A bold, modern piece that brings unique charm to any space.</p>
-                    <div class="text-center">
-                        <button class="order-btn add-to-cart-btn" data-id="1" data-name="Art Piece Title 1"
-                            data-price="150.00" data-image="media/maclarenPoster.jpg">
-                            Add to Cart
-                        </button>
-
-                    </div>
-                </div>
-            </div>
+    <!-- Featured Art Collection (Dynamically Loaded) -->
+    <div class="container card-container" id="featured-collection">
+        <!-- Product cards will be dynamically loaded here -->
+    </div>
+    <!-- Quick View Modal -->
+    <div id="quickViewModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeQuickView()">&times;</span>
+            <img id="quickViewImage" src="" alt="Product Image">
+            <h2 id="quickViewTitle">Product Title</h2>
+            <p id="quickViewPrice">EGP0.00</p>
+            <p id="quickViewDescription">Product Description</p>
+            <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
         </div>
     </div>
-    <div class="container card-container">
-        <div class="col-md-6 col-lg-3">
-            <div class="card featured-card">
-                <img src="media/maclarenPoster.jpg" class="img-fluid featured-image" alt="Art Piece 1">
-                <div class="card-body">
-                    <h5 class="card-title">Art Piece Title 1</h5>
-                    <p class="card-price">$150.00</p>
-                    <p class="card-text">A unique piece that captures the essence of automotive elegance.</p>
-                    <div class="text-center">
-                        <button class="order-btn add-to-cart-btn" data-id="1" data-name="Art Piece Title 1"
-                            data-price="150.00" data-image="media/maclarenPoster.jpg">
-                            Add to Cart
-                        </button>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-            <div class="card featured-card">
-                <img src="media/maclarenPoster.jpg" class="img-fluid featured-image" alt="Art Piece 2">
-                <div class="card-body">
-                    <h5 class="card-title">Art Piece Title 2</h5>
-                    <p class="card-price">$180.00</p>
-                    <p class="card-text">An exclusive piece for any automotive enthusiast's collection.</p>
-                    <div class="text-center">
-                        <button class="order-btn add-to-cart-btn" data-id="1" data-name="Art Piece Title 1"
-                            data-price="150.00" data-image="media/maclarenPoster.jpg">
-                            Add to Cart
-                        </button>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-            <div class="card featured-card">
-                <img src="media/maclarenPoster.jpg" class="img-fluid featured-image" alt="Art Piece 3">
-                <div class="card-body">
-                    <h5 class="card-title">Art Piece Title 3</h5>
-                    <p class="card-price">$200.00</p>
-                    <p class="card-text">A bold, modern piece that brings unique charm to any space.</p>
-                    <div class="text-center">
-                        <button class="order-btn add-to-cart-btn" data-id="1" data-name="Art Piece Title 1"
-                            data-price="150.00" data-image="media/maclarenPoster.jpg">
-                            Add to Cart
-                        </button>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
 
@@ -243,7 +148,77 @@
             <p>&copy; 2024 GlowRide creations. All Rights Reserved.</p>
         </div>
     </footer>
-    <script src="products.js"></script>
+    <!-- JavaScript to Fetch and Display Products -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            loadFeaturedProducts();
+        });
+
+        async function loadFeaturedProducts() {
+            try {
+                const response = await fetch("http://localhost:5000/api/products"); // Adjust API URL if necessary
+                const products = await response.json();
+
+                const featuredCollection = document.getElementById("featured-collection");
+                featuredCollection.innerHTML = ""; // Clear previous content
+
+                products.slice(0, 3).forEach(product => { // Limit to top 3 products if desired
+                    const productCard = document.createElement("div");
+                    productCard.classList.add("col-md-6", "col-lg-3");
+
+                    productCard.innerHTML = `
+                    <div class="card featured-card">
+                        <img src="${product.imageUrl}" class="img-fluid featured-image" alt="${product.name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${product.name}</h5>
+                            <p class="card-price">EGP${product.price.toFixed(2)}</p>
+                            <p class="card-text">${product.description}</p>
+                            <div class="text-center">
+                                <button class="order-btn add-to-cart-btn" 
+                                        data-id="${product._id}" 
+                                        data-name="${product.name}" 
+                                        data-price="${product.price}" 
+                                        data-image="${product.imageUrl}">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                    featuredCollection.appendChild(productCard);
+                });
+            } catch (error) {
+                console.error("Failed to load featured products:", error);
+            }
+        }
+        // Function to open the Quick View modal and display product details
+        function openQuickView(productId) {
+            fetch(`http://localhost:5000/api/products/${productId}`) // Adjust API URL if necessary
+                .then(response => response.json())
+                .then(product => {
+                    document.getElementById("quickViewImage").src = product.imageUrl;
+                    document.getElementById("quickViewTitle").textContent = product.name;
+                    document.getElementById("quickViewPrice").textContent = `EGP ${product.price.toFixed(2)}`;
+                    document.getElementById("quickViewDescription").textContent = product.description;
+
+                    document.getElementById("quickViewModal").style.display = "block";
+                })
+                .catch(error => console.error("Error fetching product details:", error));
+        }
+
+        // Function to close the Quick View modal
+        function closeQuickView() {
+            document.getElementById("quickViewModal").style.display = "none";
+        }
+
+        // Optional: Add to Cart functionality
+        function addToCart() {
+            alert("Product added to cart!"); // Implement cart addition logic here
+            closeQuickView(); // Close modal after adding to cart
+        }
+
+    </script>
+    <script src="js/products.js"></script>
 
 </body>
 

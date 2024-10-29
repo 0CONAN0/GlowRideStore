@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - GlowRide</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
@@ -17,6 +17,9 @@
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required placeholder="Enter your username">
+                <!-- Role field (hidden by default) -->
+                <input type="hidden" id="role" name="role" value="user">
+
             </div>
             <div class="form-group">
                 <label for="email">Email</label>

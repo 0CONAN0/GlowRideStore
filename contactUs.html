@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - GlowRide</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css.map">
@@ -14,12 +14,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Iceberg&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Iceberg&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg" id="navbar-nav">
+        <nav class="navbar navbar-expand-lg fixed-top" id="navbar-nav">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
                     <img src="media/Page 1.png" alt="Brand Logo" class="brand-logo">
@@ -41,7 +43,8 @@
     <!-- Contact Section -->
     <section class="contact-section">
         <h1 class="contact-title">Get in Touch with Us</h1>
-        <p class="contact-description">We’d love to hear from you! Whether you have a question about our products, need assistance, or want to provide feedback, please don’t hesitate to reach out.</p>
+        <p class="contact-description">We’d love to hear from you! Whether you have a question about our products, need
+            assistance, or want to provide feedback, please don’t hesitate to reach out.</p>
 
         <div class="contact-container">
             <!-- Contact Form -->
@@ -90,6 +93,38 @@
     <footer class="footer">
         <p>&copy; 2024 GlowRide. All rights reserved.</p>
     </footer>
+    <script>
+        document.querySelector(".contact-form form").addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            try {
+                const response = await fetch("http://localhost:5000/api/contact", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ name, email, message })
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    alert(result.message); // Show success message
+                    document.querySelector(".contact-form form").reset(); // Clear form
+                } else {
+                    alert(result.message || "Failed to send message.");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("An error occurred. Please try again.");
+            }
+        });
+    </script>
+
 </body>
 
 </html>

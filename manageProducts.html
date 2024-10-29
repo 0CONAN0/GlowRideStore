@@ -1,0 +1,63 @@
+<!-- manageProducts.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Products</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Iceberg&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <script src="js/admin/manageProducts.js" defer></script>
+</head>
+
+<body>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <nav>
+            <ul>
+                <li><a href="admin.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="manageProducts.html"><i class="fas fa-box"></i> Manage Products</a></li>
+                <li><a href="manageOrders.html"><i class="fas fa-shopping-cart"></i> Manage Orders</a></li>
+                <li><a href="manageUsers.html"><i class="fas fa-users"></i> Manage Users</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Manage Products</h1>
+
+        <!-- Add Product Form -->
+        <form id="addProductForm">
+            <input type="text" id="productName" placeholder="Product Name" required>
+            <input type="text" id="productPrice" placeholder="Price" required>
+            <textarea id="productDescription" placeholder="Description"></textarea>
+            <input type="text" id="productImageUrl" placeholder="Image URL">
+            <button type="submit">Add Product</button>
+        </form>
+
+        <!-- Product Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="productsTableBody">
+                <!-- Product rows will be dynamically generated here -->
+            </tbody>
+        </table>
+</body>
+
+</html>

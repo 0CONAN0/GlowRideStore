@@ -13,6 +13,36 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "login.html";
     }
 
+
+    document.getElementById("editProfileForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+    
+        const updatedProfile = {
+            username: document.getElementById("username").value,
+            email: document.getElementById("email").value,
+        };
+    
+        try {
+            const response = await fetch("http://localhost:5000/api/users/update-profile", {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${localStorage.getItem("token")}`
+                },
+                body: JSON.stringify(updatedProfile),
+            });
+    
+            if (response.ok) {
+                alert("Profile updated successfully");
+            } else {
+                console.error("Failed to update profile");
+            }
+        } catch (error) {
+            console.error("Error updating profile:", error);
+        }
+    });
+    
+
     // Load user profile data
     async function loadProfile() {
         const response = await fetch("/api/profile", {

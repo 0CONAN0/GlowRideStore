@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart - GlowRide</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css.map">
@@ -21,7 +21,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg" id="navbar-nav">
+        <nav class="navbar navbar-expand-lg fixed-top" id="navbar-nav">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
                     <img src="media/Page 1.png" alt="Brand Logo" class="brand-logo">
@@ -53,7 +53,7 @@
                     <img src="media/maclarenPoster.jpg" alt="Product 1">
                     <div class="item-details">
                         <h2 class="item-title">Car LED Neon Art</h2>
-                        <p class="item-price">$120.00</p>
+                        <p class="item-price">EGP120.00</p>
                         <div class="quantity-control">
                             <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
                             <input type="number" value="1" min="1" oninput="updateSubtotal()">
@@ -72,7 +72,7 @@
 
                 <div class="summary-line">
                     <span>Subtotal</span>
-                    <span id="subtotal">$120.00</span>
+                    <span id="subtotal">EGP120.00</span>
                 </div>
 
                 <div class="summary-line">
@@ -82,7 +82,7 @@
 
                 <div class="summary-line summary-total">
                     <span>Total</span>
-                    <span id="total">$120.00</span>
+                    <span id="total">EGP120.00</span>
                 </div>
 
                 <button class="checkout-btn" onclick="location.href='checkout.html'">Proceed to Checkout</button>
@@ -95,8 +95,8 @@
         <p>&copy; 2024 GlowRide. All rights reserved.</p>
     </footer>
 
-    <script src="products.js"></script>
-    <script src="cart.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
 
 </body>
 

@@ -32,7 +32,7 @@ function displayCartItems() {
                 <img src="${item.image}" alt="${item.name}">
                 <div class="item-details">
                     <h2 class="item-title">${item.name}</h2>
-                    <p class="item-price">$${item.price.toFixed(2)}</p>
+                    <p class="product-price">EGP ${product.price.toFixed(2)}</p>
                     <div class="quantity-control">
                         <button class="quantity-btn" onclick="decreaseQuantity('${item.id}')">-</button>
                         <input type="number" value="${item.quantity}" min="1" data-id="${item.id}" onchange="updateQuantity(this)">
@@ -44,8 +44,8 @@ function displayCartItems() {
             cartItemsContainer.appendChild(cartItem);
         });
 
-        document.getElementById("subtotal").textContent = `$${subtotal.toFixed(2)}`;
-        document.getElementById("total").textContent = `$${subtotal.toFixed(2)}`;
+        document.getElementById("subtotal").textContent = `EGP${subtotal.toFixed(2)}`;
+        document.getElementById("total").textContent = `EGP${subtotal.toFixed(2)}`;
     }
 }
 
