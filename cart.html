@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,26 +7,19 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css.map">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Iceberg&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
+    <!-- Header -->
     <header>
-        <nav class="navbar navbar-expand-lg fixed-top" id="navbar-nav">
+        <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
                     <img src="media/Page 1.png" alt="Brand Logo" class="brand-logo">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -48,22 +40,7 @@
         <div class="cart-container">
             <!-- Cart Items -->
             <div class="cart-items">
-                <!-- Cart Item 1 -->
-                <div class="cart-item">
-                    <img src="media/maclarenPoster.jpg" alt="Product 1">
-                    <div class="item-details">
-                        <h2 class="item-title">Car LED Neon Art</h2>
-                        <p class="item-price">EGP120.00</p>
-                        <div class="quantity-control">
-                            <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
-                            <input type="number" value="1" min="1" oninput="updateSubtotal()">
-                            <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
-                        </div>
-                    </div>
-                    <button class="remove-item-btn" onclick="removeItem(this)">Remove</button>
-                </div>
-
-                <!-- Add more cart items here -->
+                <!-- Cart items will be dynamically loaded here -->
             </div>
 
             <!-- Cart Summary -->
@@ -72,7 +49,7 @@
 
                 <div class="summary-line">
                     <span>Subtotal</span>
-                    <span id="subtotal">EGP120.00</span>
+                    <span id="subtotal">EGP 0.00</span>
                 </div>
 
                 <div class="summary-line">
@@ -82,22 +59,21 @@
 
                 <div class="summary-line summary-total">
                     <span>Total</span>
-                    <span id="total">EGP120.00</span>
+                    <span id="total">EGP 0.00</span>
                 </div>
 
-                <button class="checkout-btn" onclick="location.href='checkout.html'">Proceed to Checkout</button>
+                <button class="checkout-btn">Proceed to Checkout</button>
             </div>
         </div>
     </section>
-    <div id="footer-space-cart"></div>
 
-    <footer class="footer" id="footer-cart">
-        <p>&copy; 2024 GlowRide. All rights reserved.</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="text-center">&copy; 2024 GlowRide. All rights reserved.</p>
     </footer>
 
-    <script src="js/products.js"></script>
+    <!-- JavaScript Files -->
+    <script src="js/config.js"></script>
     <script src="js/cart.js"></script>
-
 </body>
-
 </html>

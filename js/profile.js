@@ -1,3 +1,8 @@
+// profile.js
+
+// Define the API base URL
+const API_BASE_URL = "http://localhost:5000"; // Update this if your backend is hosted elsewhere
+
 document.addEventListener("DOMContentLoaded", function () {
     const usernameEl = document.getElementById("username");
     const emailEl = document.getElementById("email");
@@ -13,48 +18,29 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "login.html";
     }
 
-
-    document.getElementById("editProfileForm").addEventListener("submit", async (e) => {
-        e.preventDefault();
-    
-        const updatedProfile = {
-            username: document.getElementById("username").value,
-            email: document.getElementById("email").value,
-        };
-    
-        try {
-            const response = await fetch("http://localhost:5000/api/users/update-profile", {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${localStorage.getItem("token")}`
-                },
-                body: JSON.stringify(updatedProfile),
-            });
-    
-            if (response.ok) {
-                alert("Profile updated successfully");
-            } else {
-                console.error("Failed to update profile");
-            }
-        } catch (error) {
-            console.error("Error updating profile:", error);
-        }
-    });
-    
-
     // Load user profile data
     async function loadProfile() {
-        const response = await fetch("/api/profile", {
-            headers: { Authorization: `Bearer ${token}` }
-        });
-        const data = await response.json();
+        try {
+            const response = await fetch(`${API_BASE_URL}/api/users/profile`, { // Updated endpoint
+                headers: { Authorization: `Bearer ${token}` }
+            });
 
-        if (response.ok) {
-            usernameEl.textContent = data.username;
-            emailEl.textContent = data.email;
-        } else {
-            alert("Failed to load profile.");
+            const data = await response.json();
+
+            if (response.ok) {
+                usernameEl.textContent = data.username;
+                emailEl.textContent = data.email;
+            } else {
+                alert(data.message || "Failed to load profile.");
+                if (response.status === 401) {
+                    // Token might be invalid or expired
+                    localStorage.removeItem("token");
+                    window.location.href = "login.html";
+                }
+            }
+        } catch (error) {
+            console.error("Error loading profile:", error);
+            alert("An error occurred while loading your profile. Please try again.");
         }
     }
 
@@ -73,25 +59,31 @@ document.addEventListener("DOMContentLoaded", function () {
     // Handle profile update form submission
     editProfileForm.addEventListener("submit", async function (e) {
         e.preventDefault();
-        const updatedUsername = document.getElementById("edit-username").value;
-        const updatedEmail = document.getElementById("edit-email").value;
+        const updatedUsername = document.getElementById("edit-username").value.trim();
+        const updatedEmail = document.getElementById("edit-email").value.trim();
 
-        const response = await fetch("/api/profile", {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`
-            },
-            body: JSON.stringify({ username: updatedUsername, email: updatedEmail })
-        });
+        try {
+            const response = await fetch(`${API_BASE_URL}/api/users/profile`, { // Updated endpoint
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
+                },
+                body: JSON.stringify({ username: updatedUsername, email: updatedEmail })
+            });
 
-        const data = await response.json();
-        if (response.ok) {
-            alert("Profile updated successfully!");
-            loadProfile();
-            editModal.style.display = "none";
-        } else {
-            alert(data.message || "Failed to update profile.");
+            const data = await response.json();
+
+            if (response.ok) {
+                alert("Profile updated successfully!");
+                loadProfile();
+                editModal.style.display = "none";
+            } else {
+                alert(data.message || "Failed to update profile.");
+            }
+        } catch (error) {
+            console.error("Error updating profile:", error);
+            alert("An error occurred while updating your profile. Please try again.");
         }
     });
 

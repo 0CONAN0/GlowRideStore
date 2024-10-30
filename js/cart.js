@@ -1,3 +1,5 @@
+// cart.js
+
 // Load cart items from Local Storage and display them on the cart page
 document.addEventListener("DOMContentLoaded", function () {
     displayCartItems();
@@ -14,8 +16,8 @@ function displayCartItems() {
 
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
-        document.getElementById("subtotal").textContent = `$0.00`;
-        document.getElementById("total").textContent = `$0.00`;
+        document.getElementById("subtotal").textContent = `EGP 0.00`;
+        document.getElementById("total").textContent = `EGP 0.00`;
         checkoutButton.disabled = true;
         checkoutButton.classList.add("disabled");
     } else {
@@ -32,7 +34,7 @@ function displayCartItems() {
                 <img src="${item.image}" alt="${item.name}">
                 <div class="item-details">
                     <h2 class="item-title">${item.name}</h2>
-                    <p class="product-price">EGP ${product.price.toFixed(2)}</p>
+                    <p class="product-price">EGP ${item.price.toFixed(2)}</p>
                     <div class="quantity-control">
                         <button class="quantity-btn" onclick="decreaseQuantity('${item.id}')">-</button>
                         <input type="number" value="${item.quantity}" min="1" data-id="${item.id}" onchange="updateQuantity(this)">
@@ -44,8 +46,8 @@ function displayCartItems() {
             cartItemsContainer.appendChild(cartItem);
         });
 
-        document.getElementById("subtotal").textContent = `EGP${subtotal.toFixed(2)}`;
-        document.getElementById("total").textContent = `EGP${subtotal.toFixed(2)}`;
+        document.getElementById("subtotal").textContent = `EGP ${subtotal.toFixed(2)}`;
+        document.getElementById("total").textContent = `EGP ${subtotal.toFixed(2)}`;
     }
 }
 
@@ -54,9 +56,15 @@ function updateQuantity(input) {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const productId = input.getAttribute("data-id");
     const product = cart.find(item => item.id === productId);
-    product.quantity = parseInt(input.value);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    displayCartItems();
+    const newQuantity = parseInt(input.value);
+
+    if (newQuantity > 0) {
+        product.quantity = newQuantity;
+        localStorage.setItem("cart", JSON.stringify(cart));
+        displayCartItems();
+    } else {
+        removeItem(productId);
+    }
 }
 
 // Decrease quantity
@@ -67,6 +75,8 @@ function decreaseQuantity(productId) {
         product.quantity -= 1;
         localStorage.setItem("cart", JSON.stringify(cart));
         displayCartItems();
+    } else {
+        removeItem(productId);
     }
 }
 
@@ -87,7 +97,7 @@ function removeItem(productId) {
     displayCartItems();
 }
 
-// Prevent checkout if cart is empty
+// Proceed to checkout
 document.querySelector(".checkout-btn").addEventListener("click", function (e) {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     if (cart.length === 0) {
@@ -96,5 +106,6 @@ document.querySelector(".checkout-btn").addEventListener("click", function (e) {
     } else {
         // Pass cart data to the checkout page
         localStorage.setItem("cartForCheckout", JSON.stringify(cart));
+        window.location.href = "checkout.html"; // Redirect to checkout page
     }
 });

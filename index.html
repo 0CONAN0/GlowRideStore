@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,26 +7,19 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css.map">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Iceberg&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
+    <!-- Header -->
     <header>
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="#">
                     <img src="media/Page 1.png" alt="Brand Logo" class="brand-logo">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -40,7 +32,6 @@
                             <span id="cart-count">0</span>
                         </a>
                         <a href="login.html" class="nav-link"><i class="fa-solid fa-user"></i></a>
-
                     </div>
                 </div>
             </div>
@@ -58,7 +49,7 @@
         <div class="jumbotron-content">
             <h1 class="display-4">Illuminate Your Passion for Cars with Our Unique Art</h1>
             <p class="lead">
-                At GlowRide, we bring cars to life through stunning art pieces that blend Neon with craftsmanship.
+                At GlowRide, we bring cars to life through stunning art pieces that blend neon with craftsmanship.
                 Our creations capture the essence of each car, transforming them into unique artworks that light up your
                 space with style.
                 Explore our collection and let your passion shine.
@@ -67,14 +58,12 @@
         </div>
     </div>
 
-
-
     <!-- Featured Collection Section -->
     <div class="featured-section">
         <h2 class="section-title">Featured Art Collection</h2>
         <p class="section-description">
-            "Discover our best-selling pieces, each crafted to perfection and illuminated for a striking visual impact.
-            These artworks are more than just decor—they're a statement."
+            Discover our best-selling pieces, each crafted to perfection and illuminated for a striking visual impact.
+            These artworks are more than just decor—they're a statement.
         </p>
     </div>
 
@@ -82,21 +71,8 @@
     <div class="container card-container" id="featured-collection">
         <!-- Product cards will be dynamically loaded here -->
     </div>
-    <!-- Quick View Modal -->
-    <div id="quickViewModal" class="modal" style="display: none;">
-        <div class="modal-content">
-            <span class="close" onclick="closeQuickView()">&times;</span>
-            <img id="quickViewImage" src="" alt="Product Image">
-            <h2 id="quickViewTitle">Product Title</h2>
-            <p id="quickViewPrice">EGP0.00</p>
-            <p id="quickViewDescription">Product Description</p>
-            <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
-        </div>
-    </div>
 
-
-
-
+    <!-- Footer -->
     <footer id="main-footer">
         <div class="footer-content-main">
             <!-- About Us Section -->
@@ -112,7 +88,7 @@
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="products.html">Shop</a></li>
-                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="contactUs.html">Contact Us</a></li>
                     <li><a href="faq.html">FAQ</a></li>
                 </ul>
             </div>
@@ -148,78 +124,10 @@
             <p>&copy; 2024 GlowRide creations. All Rights Reserved.</p>
         </div>
     </footer>
-    <!-- JavaScript to Fetch and Display Products -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            loadFeaturedProducts();
-        });
 
-        async function loadFeaturedProducts() {
-            try {
-                const response = await fetch("http://localhost:5000/api/products"); // Adjust API URL if necessary
-                const products = await response.json();
-
-                const featuredCollection = document.getElementById("featured-collection");
-                featuredCollection.innerHTML = ""; // Clear previous content
-
-                products.slice(0, 3).forEach(product => { // Limit to top 3 products if desired
-                    const productCard = document.createElement("div");
-                    productCard.classList.add("col-md-6", "col-lg-3");
-
-                    productCard.innerHTML = `
-                    <div class="card featured-card">
-                        <img src="${product.imageUrl}" class="img-fluid featured-image" alt="${product.name}">
-                        <div class="card-body">
-                            <h5 class="card-title">${product.name}</h5>
-                            <p class="card-price">EGP${product.price.toFixed(2)}</p>
-                            <p class="card-text">${product.description}</p>
-                            <div class="text-center">
-                                <button class="order-btn add-to-cart-btn" 
-                                        data-id="${product._id}" 
-                                        data-name="${product.name}" 
-                                        data-price="${product.price}" 
-                                        data-image="${product.imageUrl}">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                    featuredCollection.appendChild(productCard);
-                });
-            } catch (error) {
-                console.error("Failed to load featured products:", error);
-            }
-        }
-        // Function to open the Quick View modal and display product details
-        function openQuickView(productId) {
-            fetch(`http://localhost:5000/api/products/${productId}`) // Adjust API URL if necessary
-                .then(response => response.json())
-                .then(product => {
-                    document.getElementById("quickViewImage").src = product.imageUrl;
-                    document.getElementById("quickViewTitle").textContent = product.name;
-                    document.getElementById("quickViewPrice").textContent = `EGP ${product.price.toFixed(2)}`;
-                    document.getElementById("quickViewDescription").textContent = product.description;
-
-                    document.getElementById("quickViewModal").style.display = "block";
-                })
-                .catch(error => console.error("Error fetching product details:", error));
-        }
-
-        // Function to close the Quick View modal
-        function closeQuickView() {
-            document.getElementById("quickViewModal").style.display = "none";
-        }
-
-        // Optional: Add to Cart functionality
-        function addToCart() {
-            alert("Product added to cart!"); // Implement cart addition logic here
-            closeQuickView(); // Close modal after adding to cart
-        }
-
-    </script>
+    <!-- JavaScript Files -->
+    <script src="js/config.js"></script> <!-- Contains API_BASE_URL -->
     <script src="js/products.js"></script>
-
+    <script src="js/index.js"></script> <!-- Contains code specific to index.html -->
 </body>
-
 </html>

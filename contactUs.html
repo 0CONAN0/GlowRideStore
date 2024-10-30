@@ -1,33 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - GlowRide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Stylesheets -->
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css.map">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Iceberg&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Iceberg&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
+    <!-- Header and Navbar -->
     <header>
-        <nav class="navbar navbar-expand-lg fixed-top" id="navbar-nav">
+        <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
                     <img src="media/Page 1.png" alt="Brand Logo" class="brand-logo">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -43,14 +36,13 @@
     <!-- Contact Section -->
     <section class="contact-section">
         <h1 class="contact-title">Get in Touch with Us</h1>
-        <p class="contact-description">We’d love to hear from you! Whether you have a question about our products, need
-            assistance, or want to provide feedback, please don’t hesitate to reach out.</p>
+        <p class="contact-description">We’d love to hear from you! Whether you have a question about our products, need assistance, or want to provide feedback, please don’t hesitate to reach out.</p>
 
         <div class="contact-container">
             <!-- Contact Form -->
             <div class="contact-form">
                 <h2>Contact Form</h2>
-                <form action="#" method="post">
+                <form id="contactForm">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required placeholder="Your Name">
@@ -90,19 +82,23 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2024 GlowRide. All rights reserved.</p>
     </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/config.js"></script>
     <script>
-        document.querySelector(".contact-form form").addEventListener("submit", async (event) => {
+        document.getElementById("contactForm").addEventListener("submit", async (event) => {
             event.preventDefault();
 
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const message = document.getElementById("message").value;
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
 
             try {
-                const response = await fetch("http://localhost:5000/api/contact", {
+                const response = await fetch(`${API_BASE_URL}/api/contact`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -113,8 +109,8 @@
                 const result = await response.json();
 
                 if (response.ok) {
-                    alert(result.message); // Show success message
-                    document.querySelector(".contact-form form").reset(); // Clear form
+                    alert(result.message || "Your message has been sent successfully!");
+                    document.getElementById("contactForm").reset();
                 } else {
                     alert(result.message || "Failed to send message.");
                 }
@@ -124,7 +120,5 @@
             }
         });
     </script>
-
 </body>
-
 </html>
