@@ -1,133 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- index.html -->
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GlowRide Store</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/all.min.css">
+    <!-- Responsive Meta Tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Files -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css"> <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="css/main.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <!-- Header -->
+    <!-- Navbar -->
     <header>
-        <nav class="navbar navbar-expand-lg fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="media/Page 1.png" alt="Brand Logo" class="brand-logo">
+                <a class="navbar-brand" href="index.html">
+                    <img src="media/Page 1.png" alt="GlowRide Store" class="brand-logo">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <div class="navbar-nav ms-auto">
-                        <a class="nav-link" href="products.html">Products</a>
-                        <a class="nav-link" href="aboutUs.html">About Us</a>
-                        <a class="nav-link" href="contactUs.html">Contact Us</a>
-                        <a href="cart.html" class="cart-icon nav-link">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                            <span id="cart-count">0</span>
-                        </a>
-                        <a href="login.html" class="nav-link"><i class="fa-solid fa-user"></i></a>
-                    </div>
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                        <li class="nav-item"><a class="nav-link" href="aboutUs.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contactUs.html">Contact Us</a></li>
+                        <li class="nav-item position-relative"><a href="cart.html" class="nav-link"><i
+                                    class="fas fa-shopping-cart"> <span id="cart-count" class="cart-count">0</span></i></a></li>
+                        <li class="nav-item" id="loginLink"><a href="login.html" class="nav-link"><i
+                                    class="fas fa-user"></i> Login</a></li>
+                        <li class="nav-item" id="profileLink" style="display: none;"><a href="profile.html"
+                                class="nav-link"><i class="fas fa-user"></i> Profile</a></li>
+                        <li class="nav-item" id="logoutLink" style="display: none;"><a href="#" class="nav-link"
+                                id="logoutButton">Logout</a></li>
+                        <li class="nav-item" id="adminPanelLink" style="display: none;"><a href="admin.html"
+                                class="nav-link"><i class="fas fa-user-shield"></i> Admin Panel</a></li>
+                    </ul>
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- Main Jumbotron Section with Background Video -->
-    <div class="jumbotron jumbotron-fluid text-center">
-        <div class="video-container">
-            <video autoplay muted loop class="jumbotron-video">
+    <!-- Hero Section with Background Video -->
+    <section class="hero-section">
+        <div class="video-overlay">
+            <video autoplay muted loop class="bg-video">
                 <source src="media/MainBackround.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
+            <div class="overlay"></div>
         </div>
-        <div class="jumbotron-content">
-            <h1 class="display-4">Illuminate Your Passion for Cars with Our Unique Art</h1>
-            <p class="lead">
+        <div class="hero-content text-center">
+            <h1 class="hero-title">Illuminate Your Passion for Cars with Our Unique Art</h1>
+            <p class="hero-subtitle">
                 At GlowRide, we bring cars to life through stunning art pieces that blend neon with craftsmanship.
                 Our creations capture the essence of each car, transforming them into unique artworks that light up your
                 space with style.
                 Explore our collection and let your passion shine.
             </p>
-            <a href="products.html" class="btn" id="discover-btn">Discover more..</a>
+            <a href="products.html" class="btn btn-primary">Discover More</a>
         </div>
-    </div>
+    </section>
 
     <!-- Featured Collection Section -->
-    <div class="featured-section">
-        <h2 class="section-title">Featured Art Collection</h2>
-        <p class="section-description">
-            Discover our best-selling pieces, each crafted to perfection and illuminated for a striking visual impact.
-            These artworks are more than just decor—they're a statement.
-        </p>
-    </div>
-
-    <!-- Featured Art Collection (Dynamically Loaded) -->
-    <div class="container card-container" id="featured-collection">
-        <!-- Product cards will be dynamically loaded here -->
-    </div>
+    <section class="featured-section py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-4">Featured Art Collection</h2>
+            <p class="section-description text-center mx-auto mb-5">
+                Discover our best-selling pieces, each crafted to perfection and illuminated for a striking visual
+                impact.
+                These artworks are more than just decor—they're a statement.
+            </p>
+            <!-- Featured Art Collection (Dynamically Loaded) -->
+            <div class="row" id="featured-collection">
+                <!-- Product cards will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer id="main-footer">
-        <div class="footer-content-main">
-            <!-- About Us Section -->
-            <div class="footer-section-main about">
-                <h3>About Us</h3>
-                <p>At GlowRide creations, we create Neon-led car art pieces that bring the beauty of automotive
-                    design into your space. Our passion for cars and art is evident in each unique piece we craft.</p>
-                <a href="aboutUs.html">Read More</a>
+        <div class="container">
+            <div class="row footer-content-main">
+                <!-- About Us Section -->
+                <div class="col-md-3 footer-section-main">
+                    <h3>About Us</h3>
+                    <p>
+                        At GlowRide Creations, we craft neon-led car art pieces that bring the beauty of automotive
+                        design into your space.
+                    </p>
+                    <a href="aboutUs.html" class="read-more">Read More</a>
+                </div>
+                <!-- Quick Links Section -->
+                <div class="col-md-3 footer-section-main">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="contactUs.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <!-- Customer Support Section -->
+                <div class="col-md-3 footer-section-main">
+                    <h3>Customer Support</h3>
+                    <ul class="footer-contact">
+                        <li>Email: <a href="mailto:info@glowride.com">info@glowride.com</a></li>
+                        <li>Phone: +1 (123) 456-7890</li>
+                    </ul>
+                    <ul class="footer-links">
+                        <li><a href="shipping.html">Shipping and Returns</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <!-- Social Media and Newsletter Section -->
+                <div class="col-md-3 footer-section-main">
+                    <h3>Stay Updated</h3>
+                    <p>
+                        Subscribe to receive updates on new arrivals, special offers, and exclusive discounts.
+                    </p>
+                    <form action="/subscribe" method="post" class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Enter your email" required>
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </div>
+                    </form>
+                    <!-- Social Media Icons -->
+                    <div class="socials mt-4">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok fa-lg"></i></a>
+                    </div>
+                </div>
             </div>
-
-            <!-- Quick Links Section -->
-            <div class="footer-section-main links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="products.html">Shop</a></li>
-                    <li><a href="contactUs.html">Contact Us</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                </ul>
+            <!-- Footer Bottom -->
+            <div class="footer-bottom text-center mt-4">
+                <p>&copy; 2024 GlowRide Creations. All Rights Reserved.</p>
             </div>
-
-            <!-- Customer Service Section -->
-            <div class="footer-section-main customer-service">
-                <h3>Customer Support</h3>
-                <p>Email: <a href="mailto:conangaming007@gmail.com">conangaming007@gmail.com</a></p>
-                <p>Phone: +201093398960</p>
-                <a href="Shipping.html">Shipping and Returns</a><br>
-                <a href="privacy-policy.html">Privacy Policy</a><br>
-                <a href="terms-of-service.html">Terms of Service</a>
-            </div>
-
-            <!-- Newsletter Signup Section -->
-            <div class="footer-section-main newsletter">
-                <h3>Stay Updated</h3>
-                <p>Subscribe to receive updates on new arrivals, special offers, and exclusive discounts.</p>
-                <form action="/subscribe" method="post">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Social Media and Payment Icons -->
-        <div class="footer-bottom">
-            <div class="socials">
-                <a href="#"><i class="fa-brands fa-facebook fa-2x"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram fa-2x"></i></a>
-                <a href="#"><i class="fa-brands fa-tiktok fa-2x"></i></a>
-            </div>
-            <p>&copy; 2024 GlowRide creations. All Rights Reserved.</p>
         </div>
     </footer>
 
+
     <!-- JavaScript Files -->
-    <script src="js/config.js"></script> <!-- Contains API_BASE_URL -->
-    <script src="js/products.js"></script>
-    <script src="js/index.js"></script> <!-- Contains code specific to index.html -->
-</body>
+    <script src="js/bootstrap.bundle.min.js"></script> <!-- Core library: Bootstrap -->
+
+    <script type="module" src="js/authState.js"></script> <!-- Auth state management -->
+
+    <script type="module" src="js/products.js"></script> <!-- Product-related functions -->
+    <script type="module" src="js/index.js"></script> <!-- Page-specific script for index page -->
+
+    <script type="module" src="js/main.js"></script> <!-- General utility script -->
+
+
 </html>

@@ -1,6 +1,7 @@
 <!-- admin.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Admin Dashboard - GlowRide</title>
@@ -11,17 +12,20 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Iceberg&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Iceberg&family=PT+Sans:wght@400;700&display=swap"
+        rel="stylesheet">
     <!-- JavaScript Files -->
     <script src="js/config.js"></script>
     <script src="js/admin/dashboard.js" defer></script>
 </head>
+
 <body>
     <!-- Sidebar Navigation -->
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar">
         <h2>Admin Panel</h2>
         <nav>
             <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
                 <li><a href="admin.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
                 <li><a href="manageProducts.html"><i class="fas fa-box"></i> Manage Products</a></li>
                 <li><a href="manageOrders.html"><i class="fas fa-shopping-cart"></i> Manage Orders</a></li>
@@ -29,6 +33,12 @@
             </ul>
         </nav>
     </div>
+
+    <!-- Sidebar Toggler Button -->
+    <button class="sidebar-toggler" id="sidebar-toggler">
+        <i class="fas fa-bars"></i>
+    </button>
+
 
     <!-- Main Content -->
     <div class="main-content">
@@ -48,5 +58,22 @@
             </div>
         </div>
     </div>
+    <script>// Toggle Sidebar
+        const sidebarToggler = document.getElementById('sidebar-toggler');
+        const sidebar = document.getElementById('sidebar');
+
+        sidebarToggler.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+    </script>
+    <script type="module" src="js/config.js"></script> <!-- Ensure config is loaded as a module -->
+    <script type="module" src="js/admin/dashboard.js"></script>
+    <script type="module" src="js/admin/manageOrders.js"></script>
+    <script type="module" src="js/admin/manageProducts.js"></script>
+    <script type="module" src="js/admin/manageUsers.js"></script>
+    <script src="js/main.js"></script> <!-- General utility script -->
+    
+
 </body>
+
 </html>

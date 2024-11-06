@@ -1,52 +1,100 @@
+/* admin.css */
+
+/* CSS Variables for Consistent Theming */
+:root {
+    --primary-color: #1E88E5;       /* Blue for primary actions */
+    --primary-dark-color: #1565C0;  /* Darker blue for hover effects */
+    --secondary-color: #37474F;     /* Blue-gray for backgrounds */
+    --accent-color: #FFB300;        /* Amber for highlights */
+    --text-color: #ECEFF1;          /* Light text color */
+    --background-color: #263238;    /* Dark background */
+    --light-background-color: #455A64; /* Lighter background */
+    --light-text-color: #CFD8DC;    /* Slightly lighter text */
+}
+
 /* General Styling for Admin Pages */
 body {
     font-family: "PT Sans", sans-serif;
     color: var(--text-color);
     background-color: var(--background-color);
     display: flex;
+    min-height: 100vh;
 }
 
 /* Sidebar Navigation */
 .sidebar {
     width: 250px;
-    height: 100vh;
-    background-color: #333;
-    color: #fff;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
     position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
 }
 
 .sidebar h2 {
     font-family: "Iceberg", sans-serif;
-    margin-bottom: 30px;
+    margin: 20px 0;
+    color: var(--accent-color);
+    text-align: center;
 }
 
 .sidebar nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+    width: 100%;
 }
 
 .sidebar nav ul li {
-    margin: 20px 0;
+    width: 100%;
 }
 
 .sidebar nav ul li a {
-    color: #fff;
+    color: var(--text-color);
     text-decoration: none;
     font-size: 1.1em;
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px;
+    padding: 15px 20px;
     transition: background-color 0.3s ease;
-    border-radius: 5px;
+    width: 100%;
 }
 
-.sidebar nav ul li a:hover {
+.sidebar nav ul li a:hover,
+.sidebar nav ul li a.active {
+    background-color: var(--primary-dark-color);
+}
+
+.sidebar nav ul li a i {
+    margin-right: 15px;
+    font-size: 1.2em;
+}
+
+.sidebar-toggler {
+    display: none;
+    position: absolute;
+    top: 15px;
+    right: -50px;
     background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-toggler:hover {
+    background-color: var(--primary-dark-color);
 }
 
 /* Main Content */
@@ -54,25 +102,26 @@ body {
     margin-left: 250px;
     padding: 40px;
     width: calc(100% - 250px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: var(--background-color);
+    min-height: 100vh;
+    transition: margin-left 0.3s ease, width 0.3s ease;
 }
 
 h1, h2 {
     font-family: "Iceberg", sans-serif;
-    color: var(--primary-color);
+    color: var(--accent-color);
     text-align: center;
 }
 
 h1 {
     font-size: 2.5em;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 h2 {
     font-size: 1.8em;
-    margin-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 /* Metrics Container (for Dashboard) */
@@ -84,146 +133,230 @@ h2 {
 }
 
 .metric-card {
-    background-color: #262626;
-    color: #fff;
-    width: 200px;
-    padding: 20px;
-    border-radius: 10px;
+    background-color: var(--light-background-color);
+    color: var(--text-color);
+    width: 250px;
+    padding: 25px;
+    border-radius: 12px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
 }
 
 .metric-title {
     font-size: 1.2em;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     font-weight: bold;
-    color: var(--secondary-color);
+    color: var(--accent-color);
 }
 
 .metric-value {
-    font-size: 1.8em;
+    font-size: 2em;
     font-weight: bold;
     color: var(--primary-color);
 }
 
-/* Form Styling (for Products) */
-#product-form, #user-form {
-    max-width: 600px;
+/* Form Styling */
+.admin-form {
+    width: 100%;
+    max-width: 800px;
     margin: 20px auto;
-    padding: 20px;
-    background-color: #262626;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    background-color: var(--light-background-color);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
 }
 
-#product-form form, #user-form form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.admin-form .form-group {
+    margin-bottom: 20px;
 }
 
-#product-form input[type="text"],
-#product-form input[type="number"],
-#product-form textarea,
-#user-form input[type="text"],
-#user-form input[type="email"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: var(--input-background);
+.admin-form label {
+    display: block;
+    color: var(--light-text-color);
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.admin-form input[type="text"],
+.admin-form input[type="number"],
+.admin-form textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--background-color);
+    border: 1px solid #546E7A;
     color: var(--text-color);
+    border-radius: 8px;
     font-size: 1em;
+    transition: border-color 0.3s ease;
 }
 
-#product-form button, #user-form button {
+.admin-form input[type="text"]:focus,
+.admin-form input[type="number"]:focus,
+.admin-form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.admin-form input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.admin-btn {
     background-color: var(--primary-color);
     color: #fff;
-    padding: 10px;
+    padding: 12px 25px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
 }
 
-#product-form button:hover, #user-form button:hover {
-    background-color: var(--accent-color);
+.admin-btn:hover {
+    background-color: var(--primary-dark-color);
+    transform: translateY(-2px);
 }
 
-/* List and Table Styling */
-#product-list, #order-list, #user-list {
-    width: 90%;
-    max-width: 1000px;
-    margin-top: 40px;
-    padding: 20px;
-    background-color: #262626;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+.admin-btn:active {
+    transform: translateY(0);
 }
 
-table {
+/* Table Styling */
+.admin-table {
     width: 100%;
+    max-width: 1000px;
+    margin: 30px auto; /* Center the table */
     border-collapse: collapse;
-    margin-top: 20px;
+    background-color: var(--light-background-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
 }
 
-table, th, td {
-    border: 1px solid #ddd;
-}
-
-th, td {
-    padding: 12px;
+.admin-table th, .admin-table td {
+    padding: 15px;
     text-align: center;
     color: var(--text-color);
+    border-bottom: 1px solid #455A64;
 }
 
-th {
+.admin-table th {
     background-color: var(--secondary-color);
-    color: #fff;
+    color: var(--accent-color);
     font-weight: bold;
 }
 
-td {
+.admin-table tr:hover {
     background-color: var(--background-color);
 }
 
-td button {
-    background-color: var(--primary-color);
-    color: #fff;
-    padding: 5px 10px;
+.admin-table td button {
+    background-color: var(--accent-color);
+    color: #1C1C1C;
+    padding: 8px 15px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-td button:hover {
-    background-color: var(--accent-color);
+.admin-table td button:hover {
+    background-color: #FFA000;
+    transform: translateY(-2px);
+}
+
+.admin-table td button:active {
+    transform: translateY(0);
 }
 
 /* Responsive Adjustments */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .sidebar {
-        width: 200px;
+        transform: translateX(-100%);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .sidebar-toggler {
+        display: flex;
     }
 
     .main-content {
-        margin-left: 200px;
-        padding: 20px;
+        margin-left: 0;
+        width: 100%;
     }
 
-    .metric-card, #product-form, #order-list, #user-list {
-        width: 95%;
+    .metric-card, .admin-form, .admin-table {
+        width: 100%;
     }
 
-    table {
-        font-size: 0.9em;
+    .admin-table th, .admin-table td {
+        padding: 10px;
     }
 
-    th, td {
-        padding: 8px;
+    .sidebar h2 {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .metrics-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sidebar nav ul li a {
+        font-size: 1em;
+        padding: 10px 15px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .sidebar-toggler {
+        right: 15px;
+    }
+
+    /* Adjust table for small screens */
+    .admin-table, .admin-table thead, .admin-table tbody, .admin-table th, .admin-table td, .admin-table tr {
+        display: block;
+    }
+
+    .admin-table tr {
+        margin-bottom: 15px;
+    }
+
+    .admin-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .admin-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: calc(50% - 30px);
+        padding-right: 10px;
+        text-align: left;
+        font-weight: bold;
+        color: var(--light-text-color);
+    }
+
+    .admin-table th {
+        display: none;
     }
 }

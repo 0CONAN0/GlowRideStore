@@ -1,125 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- head section -->
+
 <head>
     <meta charset="UTF-8">
-    <title>About Us - GlowRide</title>
+    <title>GlowRide-AboutUs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS Stylesheets -->
-    <link rel="stylesheet" href="css/main.css">
+    <!-- CSS Files -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/all.min.css"> <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="css/main.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Iceberg&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
+
+
 <body>
     <!-- Header and Navbar -->
     <header>
-        <nav class="navbar navbar-expand-lg fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container">
+                <!-- Brand Logo -->
                 <a class="navbar-brand" href="index.html">
-                    <img src="media/Page 1.png" alt="Brand Logo" class="brand-logo">
+                    <img src="media/Page 1.png" alt="GlowRide Store" class="brand-logo">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <!-- Mobile Menu Toggle Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <!-- Navigation Links -->
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <div class="navbar-nav ms-auto">
-                        <a class="nav-link" href="products.html">Products</a>
-                        <a class="nav-link" href="contactUs.html">Contact Us</a>
-                        <a href="cart.html" class="cart-icon nav-link">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                            <span id="cart-count">0</span>
-                        </a>
-                    </div>
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="products.html" id="nav-products">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutUs.html" id="nav-about">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contactUs.html" id="nav-contact">Contact Us</a>
+                        </li>
+                        <li class="nav-item position-relative">
+                            <a href="cart.html" class="nav-link" id="nav-cart">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span id="cart-count" class="cart-count">0</span>
+                            </a>
+                        </li>
+                        <!-- Login Link -->
+                        <li class="nav-item" id="loginLink">
+                            <a href="login.html" class="nav-link" id="nav-login"><i class="fas fa-user"></i> Login</a>
+                        </li>
+                        <!-- Profile Link (Hidden by default) -->
+                        <li class="nav-item" id="profileLink" style="display: none;">
+                            <a href="profile.html" class="nav-link" id="nav-profile"><i class="fas fa-user"></i>
+                                Profile</a>
+                        </li>
+                        <!-- Logout Link (Hidden by default) -->
+                        <li class="nav-item" id="logoutLink" style="display: none;">
+                            <a href="#" class="nav-link" id="logoutButton">Logout</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
     </header>
+    <div class="main-content">
+        <section class="about-us-section">
+            <div class="container text-center">
+                <h1 class="about-title">Our Story</h1>
+                <p class="about-description">
+                    At GlowRide, we’re passionate about illuminating your love for cars. From our humble beginnings,
+                    we've grown into a team of artists and car enthusiasts who aim to bring art to life with neon and
+                    LED-infused automotive creations.
+                </p>
+            </div>
 
+            <div class="about-content container">
+                <!-- How We Started -->
+                <div class="row">
+                    <div class="col-md-12 about-box">
+                        <h2>How We Started</h2>
+                        <p>
+                            GlowRide began with a simple vision – to blend our love for cars and art. Our founders,
+                            lifelong car enthusiasts, wanted to bring automotive beauty into living spaces in a unique
+                            and visually captivating way. What started as a small project quickly grew into a
+                            passion-driven business, and today, GlowRide stands as a brand that combines technology,
+                            creativity, and car culture.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Mission and Vision -->
+                <div class="row">
+                    <div class="col-md-6 about-box">
+                        <h2>Our Mission</h2>
+                        <p>
+                            Our mission is to capture the unique beauty of automotive design and bring it into your
+                            space. Every piece is meticulously crafted to offer a striking blend of art and light,
+                            turning your favorite car models into timeless art that complements any decor.
+                        </p>
+                        <p>
+                            We believe that every car has a story to tell. By combining neon and LED lights with iconic
+                            car designs, we allow car lovers to showcase their passion in a creative and personalized
+                            way.
+                        </p>
+                    </div>
+                    <div class="col-md-6 about-box">
+                        <h2>Our Vision</h2>
+                        <p>
+                            We envision a world where car lovers can experience the beauty of their favorite vehicles as
+                            dynamic pieces of art. By blending neon and LED elements with high-quality craftsmanship, we
+                            aim to inspire and illuminate spaces across the globe.
+                        </p>
+                        <p>
+                            As we continue to grow, we’re committed to pushing the boundaries of what's possible in
+                            automotive-inspired art, creating innovative designs that resonate with both car lovers and
+                            art enthusiasts alike.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Core Values -->
+                <div class="our-values text-center">
+                    <h2>Our Core Values</h2>
+                    <p class="values-intro">
+                        At GlowRide, we are guided by a set of values that define who we are and shape every piece we
+                        create. These values are at the heart of our commitment to quality, creativity, and customer
+                        satisfaction.
+                    </p>
+                    <div class="row" id="value-box-container">
+                        <div class="col-md-3 value-box" id="value-box1">
+                            <i class="fa-solid fa-lightbulb fa-2x"></i>
+                            <h3>Innovation</h3>
+                            <p>We continuously explore new ways to integrate technology with art to create innovative
+                                experiences for car enthusiasts.</p>
+                        </div>
+                        <div class="col-md-3 value-box" id="value-box2">
+                            <i class="fa-solid fa-star fa-2x"></i>
+                            <h3>Quality</h3>
+                            <p>Our commitment to quality ensures each piece meets the highest standards, providing
+                                lasting beauty and durability.</p>
+                        </div>
+                        <div class="col-md-3 value-box" id="value-box3">
+                            <i class="fa-solid fa-heart fa-2x"></i>
+                            <h3>Passion</h3>
+                            <p>Driven by passion, we aim to connect with our customers who share a love for cars and
+                                creativity.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Meet the Team -->
+                <div class="meet-team text-center">
+                    <h2 class="meet-team-h2">Meet the Team</h2>
+                    <p id="meet-team-p">
+                        Our team is made up of passionate artists, designers, and car lovers who share a common vision.
+                        From concept to creation, our team is dedicated to delivering pieces that reflect the beauty of
+                        automotive design in the most innovative ways possible.
+                    </p>
+                    <p id="meet-team-p">
+                        We’re proud of the people behind GlowRide, and their expertise and dedication are what make each
+                        creation truly special.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
     <!-- About Us Section -->
-    <section class="about-us-section">
-        <div class="container text-center">
-            <h1 class="about-title">Our Story</h1>
-            <p class="about-description">
-                At GlowRide, we’re passionate about illuminating your love for cars. From our humble beginnings, we've grown into a team of artists and car enthusiasts who aim to bring art to life with neon and LED-infused automotive creations.
-            </p>
-        </div>
 
-        <div class="about-content container">
-            <!-- How We Started -->
-            <div class="row">
-                <div class="col-md-12 about-box">
-                    <h2>How We Started</h2>
-                    <p>
-                        GlowRide began with a simple vision – to blend our love for cars and art. Our founders, lifelong car enthusiasts, wanted to bring automotive beauty into living spaces in a unique and visually captivating way. What started as a small project quickly grew into a passion-driven business, and today, GlowRide stands as a brand that combines technology, creativity, and car culture.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Mission and Vision -->
-            <div class="row">
-                <div class="col-md-6 about-box">
-                    <h2>Our Mission</h2>
-                    <p>
-                        Our mission is to capture the unique beauty of automotive design and bring it into your space. Every piece is meticulously crafted to offer a striking blend of art and light, turning your favorite car models into timeless art that complements any decor.
-                    </p>
-                    <p>
-                        We believe that every car has a story to tell. By combining neon and LED lights with iconic car designs, we allow car lovers to showcase their passion in a creative and personalized way.
-                    </p>
-                </div>
-                <div class="col-md-6 about-box">
-                    <h2>Our Vision</h2>
-                    <p>
-                        We envision a world where car lovers can experience the beauty of their favorite vehicles as dynamic pieces of art. By blending neon and LED elements with high-quality craftsmanship, we aim to inspire and illuminate spaces across the globe.
-                    </p>
-                    <p>
-                        As we continue to grow, we’re committed to pushing the boundaries of what's possible in automotive-inspired art, creating innovative designs that resonate with both car lovers and art enthusiasts alike.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Core Values -->
-            <div class="our-values text-center">
-                <h2>Our Core Values</h2>
-                <p class="values-intro">
-                    At GlowRide, we are guided by a set of values that define who we are and shape every piece we create. These values are at the heart of our commitment to quality, creativity, and customer satisfaction.
-                </p>
-                <div class="row" id="value-box-container">
-                    <div class="col-md-3 value-box" id="value-box1">
-                        <i class="fa-solid fa-lightbulb fa-2x"></i>
-                        <h3>Innovation</h3>
-                        <p>We continuously explore new ways to integrate technology with art to create innovative experiences for car enthusiasts.</p>
-                    </div>
-                    <div class="col-md-3 value-box" id="value-box2">
-                        <i class="fa-solid fa-star fa-2x"></i>
-                        <h3>Quality</h3>
-                        <p>Our commitment to quality ensures each piece meets the highest standards, providing lasting beauty and durability.</p>
-                    </div>
-                    <div class="col-md-3 value-box" id="value-box3">
-                        <i class="fa-solid fa-heart fa-2x"></i>
-                        <h3>Passion</h3>
-                        <p>Driven by passion, we aim to connect with our customers who share a love for cars and creativity.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Meet the Team -->
-            <div class="meet-team text-center">
-                <h2 class="meet-team-h2">Meet the Team</h2>
-                <p id="meet-team-p">
-                    Our team is made up of passionate artists, designers, and car lovers who share a common vision. From concept to creation, our team is dedicated to delivering pieces that reflect the beauty of automotive design in the most innovative ways possible.
-                </p>
-                <p id="meet-team-p">
-                    We’re proud of the people behind GlowRide, and their expertise and dedication are what make each creation truly special.
-                </p>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <p class="text-center">&copy; 2024 GlowRide. All rights reserved.</p>
+        <div class="container">
+            <div class="row footer-content">
+                <!-- About Us Section -->
+                <div class="col-md-4 footer-section">
+                    <h3>About Us</h3>
+                    <p>
+                        At GlowRide Creations, we craft neon-led car art pieces that bring the beauty of automotive
+                        design into your space.
+                    </p>
+                    <a href="aboutUs.html" class="read-more">Read More</a>
+                </div>
+                <!-- Quick Links Section -->
+                <div class="col-md-4 footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="contactUs.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Section -->
+                <div class="col-md-4 footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-contact">
+                        <li>Email: <a href="mailto:info@glowride.com">info@glowride.com</a></li>
+                        <li>Phone: +1 (123) 456-7890</li>
+                    </ul>
+                    <!-- Social Media Icons -->
+                    <div class="socials mt-3">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Bottom -->
+            <div class="footer-bottom text-center mt-4">
+                <p>&copy; 2024 GlowRide Creations. All Rights Reserved.</p>
+            </div>
+        </div>
     </footer>
-</body>
+    <script src="js/bootstrap.bundle.min.js"></script> <!-- Core library: Bootstrap -->
+
+    <script type="module" src="js/authState.js"></script> <!-- Auth state management -->
+
+    <script type="module" src="js/products.js"></script> <!-- Product-related functions -->
+    <script type="module" src="js/index.js"></script> <!-- Page-specific script for index page -->
+
+    <script type="module" src="js/main.js"></script> <!-- General utility script -->
+
+
 </html>

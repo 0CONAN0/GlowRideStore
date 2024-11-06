@@ -5,33 +5,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile - GlowRide</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Files -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css"> <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container">
+                <!-- Brand Logo -->
                 <a class="navbar-brand" href="index.html">
-                    <img src="media/Page 1.png" alt="Brand Logo" class="brand-logo">
+                    <img src="media/Page 1.png" alt="GlowRide Store" class="brand-logo">
                 </a>
+                <!-- Mobile Menu Toggle Button -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <!-- Navigation Links -->
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <div class="navbar-nav ms-auto">
-                        <a class="nav-link" href="products.html">Products</a>
-                        <a class="nav-link" href="aboutUs.html">About Us</a>
-                        <a class="nav-link" href="contactUs.html">Contact Us</a>
-                        <a href="cart.html" class="cart-icon nav-link">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                            <span id="cart-count">0</span>
-                        </a>
-                        <a class="nav-link" href="login.html" id="logout-btn">Logout</a>
-                    </div>
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="products.html" id="nav-products">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutUs.html" id="nav-about">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contactUs.html" id="nav-contact">Contact Us</a>
+                        </li>
+                        <li class="nav-item position-relative">
+                            <a href="cart.html" class="nav-link" id="nav-cart">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span id="cart-count" class="cart-count">0</span>
+                            </a>
+                        </li>
+                        <!-- Login Link -->
+                        <li class="nav-item" id="loginLink">
+                            <a href="login.html" class="nav-link" id="nav-login"><i class="fas fa-user"></i> Login</a>
+                        </li>
+                        <!-- Profile Link (Hidden by default) -->
+                        <li class="nav-item" id="profileLink" style="display: none;">
+                            <a href="profile.html" class="nav-link" id="nav-profile"><i class="fas fa-user"></i>
+                                Profile</a>
+                        </li>
+                        <!-- Logout Link (Hidden by default) -->
+                        <li class="nav-item" id="logoutLink" style="display: none;">
+                            <a href="#" class="nav-link" id="logoutButton">Logout</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -46,7 +74,6 @@
                 <p><strong>Username:</strong> <span id="username">Loading...</span></p>
                 <p><strong>Email:</strong> <span id="email">Loading...</span></p>
                 <button class="profile-btn" id="edit-profile-btn">Edit Profile</button>
-                <button class="profile-btn" id="logout-btn">Logout</button>
             </div>
         </div>
     </div>
@@ -55,7 +82,8 @@
     <div class="modal" id="editModal">
         <div class="modal-content">
             <h2>Edit Profile</h2>
-            <form id="editProfileForm">
+            <!-- Add enctype to handle file upload -->
+            <form id="editProfileForm" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="edit-username">Username</label>
                     <input type="text" id="edit-username" name="username" required>
@@ -64,13 +92,31 @@
                     <label for="edit-email">Email</label>
                     <input type="email" id="edit-email" name="email" required>
                 </div>
+                <!-- New Profile Picture Input -->
+                <div class="form-group">
+                    <label for="edit-profile-picture">Profile Picture</label>
+                    <input type="file" id="edit-profile-picture" name="profilePicture" accept="image/*">
+                </div>
                 <button type="submit" class="profile-btn">Save Changes</button>
             </form>
             <button class="profile-btn" id="closeModal">Cancel</button>
         </div>
     </div>
 
-    <script src="profile.js"></script>
+    <!-- JavaScript Files -->
+    <script src="js/bootstrap.bundle.min.js"></script> <!-- Core library -->
+    <script type="module" src="js/config.js"></script> <!-- Configuration file -->
+    <script type="module" src="js/authState.js"></script> <!-- Auth state management -->
+
+    <!-- Page-specific JavaScript files -->
+    <script type="module" src="js/login.js"></script>
+    <script type="module" src="js/signup.js"></script>
+    <script type="module" src="js/profile.js"></script>
+
+    <script src="js/navActive.js"></script> <!-- Navigation script -->
+    <script src="js/main.js"></script> <!-- General utility script -->
+
+
 </body>
 
 </html>

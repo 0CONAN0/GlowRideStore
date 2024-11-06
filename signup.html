@@ -1,12 +1,17 @@
+<!-- signup.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - GlowRide</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Files -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css"> <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="auth-container">
@@ -14,23 +19,30 @@
         <form class="auth-form" id="signupForm">
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" required placeholder="Enter your username">
+                <input type="text" id="username" name="username" required placeholder="Enter your username" />
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required placeholder="Enter your email">
+                <input type="email" id="email" name="email" required placeholder="Enter your email" />
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" required placeholder="Enter your password">
+                <input type="password" id="password" name="password" required placeholder="Enter your password" />
+            </div>
+            <!-- Admin Secret Field (Optional) -->
+            <div class="form-group">
+                <label for="adminSecret">Admin Secret (Leave blank if not admin)</label>
+                <input type="password" id="adminSecret" name="adminSecret" placeholder="Admin Secret" />
             </div>
             <button type="submit" class="auth-btn">Sign Up</button>
             <p class="auth-switch">Already have an account? <a href="login.html">Login</a></p>
         </form>
     </div>
 
-    <!-- JavaScript Files -->
-    <script src="js/config.js"></script>
-    <script src="js/auth.js"></script>
+    <script src="js/bootstrap.bundle.min.js" defer></script>
+    <!-- Include authState.js as a module -->
+<script type="module" src="js/authState.js"></script>
+
+    <script type="module" src="js/signup.js"></script>
 </body>
 </html>

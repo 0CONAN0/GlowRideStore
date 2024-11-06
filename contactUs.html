@@ -1,124 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!--head section -->
+
 <head>
     <meta charset="UTF-8">
-    <title>Contact Us - GlowRide</title>
+    <title>GlowRide-ContactUs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS Stylesheets -->
-    <link rel="stylesheet" href="css/main.css">
+    <!-- CSS Files -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/all.min.css"> <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="css/main.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Iceberg&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Header and Navbar -->
     <header>
-        <nav class="navbar navbar-expand-lg fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container">
+                <!-- Brand Logo -->
                 <a class="navbar-brand" href="index.html">
-                    <img src="media/Page 1.png" alt="Brand Logo" class="brand-logo">
+                    <img src="media/Page 1.png" alt="GlowRide Store" class="brand-logo">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <!-- Mobile Menu Toggle Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <!-- Navigation Links -->
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <div class="navbar-nav ms-auto">
-                        <a class="nav-link" href="products.html">Products</a>
-                        <a class="nav-link" href="aboutUs.html">About Us</a>
-                    </div>
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="products.html" id="nav-products">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutUs.html" id="nav-about">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contactUs.html" id="nav-contact">Contact Us</a>
+                        </li>
+                        <li class="nav-item position-relative">
+                            <a href="cart.html" class="nav-link" id="nav-cart">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span id="cart-count" class="cart-count">0</span>
+                            </a>
+                        </li>
+                        <!-- Login Link -->
+                        <li class="nav-item" id="loginLink">
+                            <a href="login.html" class="nav-link" id="nav-login"><i class="fas fa-user"></i> Login</a>
+                        </li>
+                        <!-- Profile Link (Hidden by default) -->
+                        <li class="nav-item" id="profileLink" style="display: none;">
+                            <a href="profile.html" class="nav-link" id="nav-profile"><i class="fas fa-user"></i>
+                                Profile</a>
+                        </li>
+                        <!-- Logout Link (Hidden by default) -->
+                        <li class="nav-item" id="logoutLink" style="display: none;">
+                            <a href="#" class="nav-link" id="logoutButton">Logout</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- Contact Section -->
-    <section class="contact-section">
-        <h1 class="contact-title">Get in Touch with Us</h1>
-        <p class="contact-description">We’d love to hear from you! Whether you have a question about our products, need assistance, or want to provide feedback, please don’t hesitate to reach out.</p>
 
-        <div class="contact-container">
-            <!-- Contact Form -->
-            <div class="contact-form">
-                <h2>Contact Form</h2>
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required placeholder="Your Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="Your Email">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required placeholder="Your Message"></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </div>
 
-            <!-- Contact Details -->
-            <div class="contact-details">
-                <h2>Contact Details</h2>
-                <div class="contact-info">
-                    <i class="fa-solid fa-map-marker-alt"></i>
-                    <p>1234 GlowRide St, Cairo, Egypt</p>
+    <div class="main-content">
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h1 class="contact-title">Get in Touch with Us</h1>
+            <p class="contact-description">We’d love to hear from you! Whether you have a question about our products,
+                need assistance, or want to provide feedback, please don’t hesitate to reach out.</p>
+
+            <div class="contact-container">
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h2>Contact Form</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
                 </div>
-                <div class="contact-info">
-                    <i class="fa-solid fa-phone"></i>
-                    <p>+20 123 456 789</p>
-                </div>
-                <div class="contact-info">
-                    <i class="fa-solid fa-envelope"></i>
-                    <p>contact@glowride.com</p>
-                </div>
-                <div class="contact-info">
-                    <i class="fa-solid fa-clock"></i>
-                    <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
+
+                <!-- Contact Details -->
+                <div class="contact-details">
+                    <h2>Contact Details</h2>
+                    <div class="contact-info">
+                        <i class="fa-solid fa-map-marker-alt"></i>
+                        <p>1234 GlowRide St, Cairo, Egypt</p>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fa-solid fa-phone"></i>
+                        <p>+20 123 456 789</p>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fa-solid fa-envelope"></i>
+                        <p>contact@glowride.com</p>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fa-solid fa-clock"></i>
+                        <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2024 GlowRide. All rights reserved.</p>
+        <div class="container">
+            <div class="row footer-content">
+                <!-- About Us Section -->
+                <div class="col-md-4 footer-section">
+                    <h3>About Us</h3>
+                    <p>
+                        At GlowRide Creations, we craft neon-led car art pieces that bring the beauty of automotive
+                        design into your space.
+                    </p>
+                    <a href="aboutUs.html" class="read-more">Read More</a>
+                </div>
+                <!-- Quick Links Section -->
+                <div class="col-md-4 footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="contactUs.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Section -->
+                <div class="col-md-4 footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-contact">
+                        <li>Email: <a href="mailto:info@glowride.com">info@glowride.com</a></li>
+                        <li>Phone: +1 (123) 456-7890</li>
+                    </ul>
+                    <!-- Social Media Icons -->
+                    <div class="socials mt-3">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Bottom -->
+            <div class="footer-bottom text-center mt-4">
+                <p>&copy; 2024 GlowRide Creations. All Rights Reserved.</p>
+            </div>
+        </div>
     </footer>
 
     <!-- JavaScript Files -->
-    <script src="js/config.js"></script>
-    <script>
-        document.getElementById("contactForm").addEventListener("submit", async (event) => {
-            event.preventDefault();
+    <script type="module" src="js/config.js"></script>
+    <script type="module" src="js/login.js"></script>
+    <script type="module" src="js/signup.js"></script>
 
-            const name = document.getElementById("name").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const message = document.getElementById("message").value.trim();
+    <script src="js/navActive.js"></script>
+    <!-- Include authState.js as a module -->
+<script type="module" src="js/authState.js"></script>
 
-            try {
-                const response = await fetch(`${API_BASE_URL}/api/contact`, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({ name, email, message })
-                });
-
-                const result = await response.json();
-
-                if (response.ok) {
-                    alert(result.message || "Your message has been sent successfully!");
-                    document.getElementById("contactForm").reset();
-                } else {
-                    alert(result.message || "Failed to send message.");
-                }
-            } catch (error) {
-                console.error("Error:", error);
-                alert("An error occurred. Please try again.");
-            }
-        });
-    </script>
+    <script src="js/contact.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
